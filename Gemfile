@@ -4,6 +4,25 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+# 추가 
+gem 'mysql2'
+gem 'unicorn'
+gem 'capistrano-rails', group: :development 
+gem 'capistrano-rbenv' # required
+gem 'capistrano-rbenv-install'
+gem 'capistrano-unicorn-nginx'
+gem 'capistrano-upload-config'
+gem 'capistrano-safe-deploy-to'
+gem 'capistrano-ssh-doctor'
+gem 'capistrano-rails-console'
+gem 'capistrano-rails-collection' 
+gem 'capistrano-rails-tail-log'
+gem 'capistrano-faster-assets'
+
+
+
+
+
 
 # Installed Gems
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
