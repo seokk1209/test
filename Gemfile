@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 # 추가 
-gem 'mysql2'
+# gem 'mysql2'
 gem 'unicorn'
 gem 'capistrano-rails', group: :development 
 gem 'capistrano-rbenv' # required
