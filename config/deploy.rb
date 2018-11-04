@@ -1,33 +1,33 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, 'manspouch' 
-set :repo_url, "git@github.com:seokk1209/test.git" 
+set :application, 'manspouch'
+set :repo_url, "git@github.com:seokk1209/test.git"
 set :deploy_to, "/root/test"
 
-set :rbenv_type, :user # or :system, depends on your rbenv setup 
-set :rbenv_ruby, '2.4.0' 
-set :rbenv_prefix, "RBENV_ROOT=/root/.rbenv RBENV_VERSION=2.4.0 /root/.rbenv/bin/rbenv exec" 
-set :rbenv_map_bins, %w{rake gem bundle ruby rails} 
-set :rbenv_roles, :all # default values # Default value for :linked_files is [] 
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+# set :rbenv_ruby, '2.4.0'
+set :rbenv_prefix, "RBENV_ROOT=/root/.rbenv RBENV_VERSION=2.4.0 /root/.rbenv/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all # default values # Default value for :linked_files is []
 
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml') 
-set :config_files, fetch(:linked_files) 
-set :pty, true 
-set :keep_releases, 5 
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :config_files, fetch(:linked_files)
+set :pty, true
+set :keep_releases, 5
 
-before 'deploy:check:linked_files', 'config:push' 
+before 'deploy:check:linked_files', 'config:push'
 
-namespace :deploy do 
-  after :restart, :clear_cache do 
-    on roles(:web), in: :groups, limit: 3, wait: 10 do 
-      # Here we can do anything such as: 
-      # within release_path do 
-      # execute :rake, 'cache:clear' 
-      # end 
-    end 
-  end 
-end 
+namespace :deploy do
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      # execute :rake, 'cache:clear'
+      # end
+    end
+  end
+end
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
