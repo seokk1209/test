@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:seokk1209/#{fetch(:application)}.git"
 set :deploy_to, "/root/test"
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_path, '/root/.rbenv/bin'
+set :rbenv_path, '/root/.rbenv'
 set :rbenv_ruby, '2.4.0'
 # set :rbenv_prefix, "RBENV_ROOT='/root/.rbenv/bin' RBENV_VERSION='1.1.1' /root/.rbenv/bin/rbenv exec"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
